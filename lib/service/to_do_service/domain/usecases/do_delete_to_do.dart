@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:dartz/dartz.dart';
 import 'package:flutter_application_1/cores/abstracts/failure.dart';
 import 'package:flutter_application_1/cores/abstracts/usecase.dart';
