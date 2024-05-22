@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ToDoEntity {
   String get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  bool get isCompleted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ToDoEntityCopyWith<ToDoEntity> get copyWith =>
@@ -31,7 +31,7 @@ abstract class $ToDoEntityCopyWith<$Res> {
           ToDoEntity value, $Res Function(ToDoEntity) then) =
       _$ToDoEntityCopyWithImpl<$Res, ToDoEntity>;
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call({String id, String title, bool isCompleted});
 }
 
 /// @nodoc
@@ -49,7 +49,7 @@ class _$ToDoEntityCopyWithImpl<$Res, $Val extends ToDoEntity>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -60,10 +60,10 @@ class _$ToDoEntityCopyWithImpl<$Res, $Val extends ToDoEntity>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -76,7 +76,7 @@ abstract class _$$ToDoEntityImplCopyWith<$Res>
       __$$ToDoEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call({String id, String title, bool isCompleted});
 }
 
 /// @nodoc
@@ -92,7 +92,7 @@ class __$$ToDoEntityImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_$ToDoEntityImpl(
       id: null == id
@@ -103,10 +103,10 @@ class __$$ToDoEntityImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -115,18 +115,18 @@ class __$$ToDoEntityImplCopyWithImpl<$Res>
 
 class _$ToDoEntityImpl implements _ToDoEntity {
   const _$ToDoEntityImpl(
-      {required this.id, required this.title, required this.description});
+      {required this.id, required this.title, required this.isCompleted});
 
   @override
   final String id;
   @override
   final String title;
   @override
-  final String description;
+  final bool isCompleted;
 
   @override
   String toString() {
-    return 'ToDoEntity(id: $id, title: $title, description: $description)';
+    return 'ToDoEntity(id: $id, title: $title, isCompleted: $isCompleted)';
   }
 
   @override
@@ -136,12 +136,12 @@ class _$ToDoEntityImpl implements _ToDoEntity {
             other is _$ToDoEntityImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description);
+  int get hashCode => Object.hash(runtimeType, id, title, isCompleted);
 
   @JsonKey(ignore: true)
   @override
@@ -154,14 +154,14 @@ abstract class _ToDoEntity implements ToDoEntity {
   const factory _ToDoEntity(
       {required final String id,
       required final String title,
-      required final String description}) = _$ToDoEntityImpl;
+      required final bool isCompleted}) = _$ToDoEntityImpl;
 
   @override
   String get id;
   @override
   String get title;
   @override
-  String get description;
+  bool get isCompleted;
   @override
   @JsonKey(ignore: true)
   _$$ToDoEntityImplCopyWith<_$ToDoEntityImpl> get copyWith =>

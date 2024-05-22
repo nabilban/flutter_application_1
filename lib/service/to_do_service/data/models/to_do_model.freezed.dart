@@ -14,17 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ToDoModel _$ToDoModelFromJson(Map<String, dynamic> json) {
-  return _ToDoModel.fromJson(json);
-}
-
 /// @nodoc
 mixin _$ToDoModel {
+  @HiveField(0)
   String get id => throw _privateConstructorUsedError;
+  @HiveField(1)
   String get title => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+  @HiveField(2)
+  bool get isCompleted => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ToDoModelCopyWith<ToDoModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -35,7 +33,10 @@ abstract class $ToDoModelCopyWith<$Res> {
   factory $ToDoModelCopyWith(ToDoModel value, $Res Function(ToDoModel) then) =
       _$ToDoModelCopyWithImpl<$Res, ToDoModel>;
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String title,
+      @HiveField(2) bool isCompleted});
 }
 
 /// @nodoc
@@ -53,7 +54,7 @@ class _$ToDoModelCopyWithImpl<$Res, $Val extends ToDoModel>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -64,10 +65,10 @@ class _$ToDoModelCopyWithImpl<$Res, $Val extends ToDoModel>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -80,7 +81,10 @@ abstract class _$$ToDoModelImplCopyWith<$Res>
       __$$ToDoModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String title, String description});
+  $Res call(
+      {@HiveField(0) String id,
+      @HiveField(1) String title,
+      @HiveField(2) bool isCompleted});
 }
 
 /// @nodoc
@@ -96,7 +100,7 @@ class __$$ToDoModelImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? title = null,
-    Object? description = null,
+    Object? isCompleted = null,
   }) {
     return _then(_$ToDoModelImpl(
       id: null == id
@@ -107,33 +111,37 @@ class __$$ToDoModelImplCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
+      isCompleted: null == isCompleted
+          ? _value.isCompleted
+          : isCompleted // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@HiveType(typeId: 0, adapterName: 'ToDoModelAdapter')
 class _$ToDoModelImpl with DiagnosticableTreeMixin implements _ToDoModel {
   const _$ToDoModelImpl(
-      {required this.id, required this.title, required this.description});
-
-  factory _$ToDoModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ToDoModelImplFromJson(json);
+      {@HiveField(0) required this.id,
+      @HiveField(1) required this.title,
+      @HiveField(2) this.isCompleted = false});
 
   @override
+  @HiveField(0)
   final String id;
   @override
+  @HiveField(1)
   final String title;
   @override
-  final String description;
+  @JsonKey()
+  @HiveField(2)
+  final bool isCompleted;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ToDoModel(id: $id, title: $title, description: $description)';
+    return 'ToDoModel(id: $id, title: $title, isCompleted: $isCompleted)';
   }
 
   @override
@@ -143,7 +151,7 @@ class _$ToDoModelImpl with DiagnosticableTreeMixin implements _ToDoModel {
       ..add(DiagnosticsProperty('type', 'ToDoModel'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('description', description));
+      ..add(DiagnosticsProperty('isCompleted', isCompleted));
   }
 
   @override
@@ -153,43 +161,35 @@ class _$ToDoModelImpl with DiagnosticableTreeMixin implements _ToDoModel {
             other is _$ToDoModelImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            (identical(other.isCompleted, isCompleted) ||
+                other.isCompleted == isCompleted));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, description);
+  int get hashCode => Object.hash(runtimeType, id, title, isCompleted);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ToDoModelImplCopyWith<_$ToDoModelImpl> get copyWith =>
       __$$ToDoModelImplCopyWithImpl<_$ToDoModelImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ToDoModelImplToJson(
-      this,
-    );
-  }
 }
 
 abstract class _ToDoModel implements ToDoModel {
   const factory _ToDoModel(
-      {required final String id,
-      required final String title,
-      required final String description}) = _$ToDoModelImpl;
-
-  factory _ToDoModel.fromJson(Map<String, dynamic> json) =
-      _$ToDoModelImpl.fromJson;
+      {@HiveField(0) required final String id,
+      @HiveField(1) required final String title,
+      @HiveField(2) final bool isCompleted}) = _$ToDoModelImpl;
 
   @override
+  @HiveField(0)
   String get id;
   @override
+  @HiveField(1)
   String get title;
   @override
-  String get description;
+  @HiveField(2)
+  bool get isCompleted;
   @override
   @JsonKey(ignore: true)
   _$$ToDoModelImplCopyWith<_$ToDoModelImpl> get copyWith =>
