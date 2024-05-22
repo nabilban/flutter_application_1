@@ -5,6 +5,8 @@ linter:
   rules:
 
 analyzer:
+  errors:
+     invalid_annotation_target: ignore
   exclude:
     - lib/**/__generated__/**.dart
     - lib/**/**.freezed.dart

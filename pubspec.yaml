@@ -34,6 +34,7 @@ dependencies:
   hive_flutter: 
   freezed_annotation:
   cupertino_icons: ^1.0.6
+  dartz: ^0.10.1
 
 dev_dependencies:
   flutter_test:
