@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 class ToDoItem extends StatelessWidget {
   const ToDoItem({
     super.key,
-    required this.taskName,
+    required this.title, required this.isCompleted,
   });
 
-  final String taskName;
+  final String title;
+  final bool  isCompleted;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,10 @@ class ToDoItem extends StatelessWidget {
           children: [
             Row(
               children: [
-                Expanded(child: Text(taskName)),
+                Expanded(child: Text(title)),
+                Checkbox(value:isCompleted , onChanged: (value) {
+                  //TODO: onchange 
+                })
               ],
             ),
           ],

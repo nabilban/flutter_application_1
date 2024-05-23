@@ -477,55 +477,10 @@ abstract class _ToDoDelete implements ToDoEvent {
 
 /// @nodoc
 mixin _$ToDoState {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos) $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<ToDoEntity> toDos)? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos)? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ToDoState value) $default, {
-    required TResult Function(ToDoInitial value) initial,
-    required TResult Function(ToDoLoading value) loading,
-    required TResult Function(ToDoLoaded value) loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ToDoState value)? $default, {
-    TResult? Function(ToDoInitial value)? initial,
-    TResult? Function(ToDoLoading value)? loading,
-    TResult? Function(ToDoLoaded value)? loaded,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ToDoState value)? $default, {
-    TResult Function(ToDoInitial value)? initial,
-    TResult Function(ToDoLoading value)? loading,
-    TResult Function(ToDoLoaded value)? loaded,
-    required TResult orElse(),
-  }) =>
+  List<ToDoEntity> get toDos => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ToDoStateCopyWith<ToDoState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -533,6 +488,8 @@ mixin _$ToDoState {
 abstract class $ToDoStateCopyWith<$Res> {
   factory $ToDoStateCopyWith(ToDoState value, $Res Function(ToDoState) then) =
       _$ToDoStateCopyWithImpl<$Res, ToDoState>;
+  @useResult
+  $Res call({List<ToDoEntity> toDos});
 }
 
 /// @nodoc
@@ -544,13 +501,28 @@ class _$ToDoStateCopyWithImpl<$Res, $Val extends ToDoState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? toDos = null,
+  }) {
+    return _then(_value.copyWith(
+      toDos: null == toDos
+          ? _value.toDos
+          : toDos // ignore: cast_nullable_to_non_nullable
+              as List<ToDoEntity>,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ToDoStateImplCopyWith<$Res> {
+abstract class _$$ToDoStateImplCopyWith<$Res>
+    implements $ToDoStateCopyWith<$Res> {
   factory _$$ToDoStateImplCopyWith(
           _$ToDoStateImpl value, $Res Function(_$ToDoStateImpl) then) =
       __$$ToDoStateImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({List<ToDoEntity> toDos});
 }
@@ -612,429 +584,15 @@ class _$ToDoStateImpl implements _ToDoState {
   @pragma('vm:prefer-inline')
   _$$ToDoStateImplCopyWith<_$ToDoStateImpl> get copyWith =>
       __$$ToDoStateImplCopyWithImpl<_$ToDoStateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos) $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return $default(toDos);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<ToDoEntity> toDos)? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return $default?.call(toDos);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos)? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(toDos);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ToDoState value) $default, {
-    required TResult Function(ToDoInitial value) initial,
-    required TResult Function(ToDoLoading value) loading,
-    required TResult Function(ToDoLoaded value) loaded,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ToDoState value)? $default, {
-    TResult? Function(ToDoInitial value)? initial,
-    TResult? Function(ToDoLoading value)? loading,
-    TResult? Function(ToDoLoaded value)? loaded,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ToDoState value)? $default, {
-    TResult Function(ToDoInitial value)? initial,
-    TResult Function(ToDoLoading value)? loading,
-    TResult Function(ToDoLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ToDoState implements ToDoState {
   factory _ToDoState({required final List<ToDoEntity> toDos}) = _$ToDoStateImpl;
 
+  @override
   List<ToDoEntity> get toDos;
+  @override
   @JsonKey(ignore: true)
   _$$ToDoStateImplCopyWith<_$ToDoStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ToDoInitialImplCopyWith<$Res> {
-  factory _$$ToDoInitialImplCopyWith(
-          _$ToDoInitialImpl value, $Res Function(_$ToDoInitialImpl) then) =
-      __$$ToDoInitialImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToDoInitialImplCopyWithImpl<$Res>
-    extends _$ToDoStateCopyWithImpl<$Res, _$ToDoInitialImpl>
-    implements _$$ToDoInitialImplCopyWith<$Res> {
-  __$$ToDoInitialImplCopyWithImpl(
-      _$ToDoInitialImpl _value, $Res Function(_$ToDoInitialImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ToDoInitialImpl implements ToDoInitial {
-  const _$ToDoInitialImpl();
-
-  @override
-  String toString() {
-    return 'ToDoState.initial()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToDoInitialImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos) $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<ToDoEntity> toDos)? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return initial?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos)? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ToDoState value) $default, {
-    required TResult Function(ToDoInitial value) initial,
-    required TResult Function(ToDoLoading value) loading,
-    required TResult Function(ToDoLoaded value) loaded,
-  }) {
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ToDoState value)? $default, {
-    TResult? Function(ToDoInitial value)? initial,
-    TResult? Function(ToDoLoading value)? loading,
-    TResult? Function(ToDoLoaded value)? loaded,
-  }) {
-    return initial?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ToDoState value)? $default, {
-    TResult Function(ToDoInitial value)? initial,
-    TResult Function(ToDoLoading value)? loading,
-    TResult Function(ToDoLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToDoInitial implements ToDoState {
-  const factory ToDoInitial() = _$ToDoInitialImpl;
-}
-
-/// @nodoc
-abstract class _$$ToDoLoadingImplCopyWith<$Res> {
-  factory _$$ToDoLoadingImplCopyWith(
-          _$ToDoLoadingImpl value, $Res Function(_$ToDoLoadingImpl) then) =
-      __$$ToDoLoadingImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToDoLoadingImplCopyWithImpl<$Res>
-    extends _$ToDoStateCopyWithImpl<$Res, _$ToDoLoadingImpl>
-    implements _$$ToDoLoadingImplCopyWith<$Res> {
-  __$$ToDoLoadingImplCopyWithImpl(
-      _$ToDoLoadingImpl _value, $Res Function(_$ToDoLoadingImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ToDoLoadingImpl implements ToDoLoading {
-  const _$ToDoLoadingImpl();
-
-  @override
-  String toString() {
-    return 'ToDoState.loading()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToDoLoadingImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos) $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loading();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<ToDoEntity> toDos)? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return loading?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos)? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ToDoState value) $default, {
-    required TResult Function(ToDoInitial value) initial,
-    required TResult Function(ToDoLoading value) loading,
-    required TResult Function(ToDoLoaded value) loaded,
-  }) {
-    return loading(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ToDoState value)? $default, {
-    TResult? Function(ToDoInitial value)? initial,
-    TResult? Function(ToDoLoading value)? loading,
-    TResult? Function(ToDoLoaded value)? loaded,
-  }) {
-    return loading?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ToDoState value)? $default, {
-    TResult Function(ToDoInitial value)? initial,
-    TResult Function(ToDoLoading value)? loading,
-    TResult Function(ToDoLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loading != null) {
-      return loading(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToDoLoading implements ToDoState {
-  const factory ToDoLoading() = _$ToDoLoadingImpl;
-}
-
-/// @nodoc
-abstract class _$$ToDoLoadedImplCopyWith<$Res> {
-  factory _$$ToDoLoadedImplCopyWith(
-          _$ToDoLoadedImpl value, $Res Function(_$ToDoLoadedImpl) then) =
-      __$$ToDoLoadedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToDoLoadedImplCopyWithImpl<$Res>
-    extends _$ToDoStateCopyWithImpl<$Res, _$ToDoLoadedImpl>
-    implements _$$ToDoLoadedImplCopyWith<$Res> {
-  __$$ToDoLoadedImplCopyWithImpl(
-      _$ToDoLoadedImpl _value, $Res Function(_$ToDoLoadedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ToDoLoadedImpl implements ToDoLoaded {
-  const _$ToDoLoadedImpl();
-
-  @override
-  String toString() {
-    return 'ToDoState.loaded()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToDoLoadedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos) $default, {
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function() loaded,
-  }) {
-    return loaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<ToDoEntity> toDos)? $default, {
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function()? loaded,
-  }) {
-    return loaded?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<ToDoEntity> toDos)? $default, {
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function()? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_ToDoState value) $default, {
-    required TResult Function(ToDoInitial value) initial,
-    required TResult Function(ToDoLoading value) loading,
-    required TResult Function(ToDoLoaded value) loaded,
-  }) {
-    return loaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_ToDoState value)? $default, {
-    TResult? Function(ToDoInitial value)? initial,
-    TResult? Function(ToDoLoading value)? loading,
-    TResult? Function(ToDoLoaded value)? loaded,
-  }) {
-    return loaded?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_ToDoState value)? $default, {
-    TResult Function(ToDoInitial value)? initial,
-    TResult Function(ToDoLoading value)? loading,
-    TResult Function(ToDoLoaded value)? loaded,
-    required TResult orElse(),
-  }) {
-    if (loaded != null) {
-      return loaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ToDoLoaded implements ToDoState {
-  const factory ToDoLoaded() = _$ToDoLoadedImpl;
 }

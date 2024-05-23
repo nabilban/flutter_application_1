@@ -9,8 +9,8 @@ import 'package:hive_flutter/adapters.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(ToDoModelAdapter());
-  // ignore: unused_local_variable
   toDoBox = await Hive.openBox<ToDoModel>('toDoBox');
+  // ignore: unused_local_variable
   runApp(const MyApp());
 }
 

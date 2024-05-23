@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_application_1/cores/abstracts/failure.dart';
 import 'package:flutter_application_1/cores/abstracts/usecase.dart';
+import 'package:flutter_application_1/injection_container.dart';
 import 'package:flutter_application_1/service/to_do_service/domain/repository/to_do_repository.dart';
 
 class DoDeleteToDo extends UseCase<bool, DoDeleteToDoParams> {
-  DoDeleteToDo({required this.repository});
 
-  final ToDoRepository repository;
+  final ToDoRepository repository = sl<ToDoRepository>();
 
   @override
   Future<Either<Failure, bool>> call(params) async {
