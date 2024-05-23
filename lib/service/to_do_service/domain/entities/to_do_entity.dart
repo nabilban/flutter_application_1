@@ -17,4 +17,10 @@ class ToDoEntity with _$ToDoEntity {
       isCompleted: model.isCompleted,
     );
   }
+
+  factory ToDoEntity.empty() => const ToDoEntity(
+        id: '',
+        title: '',
+        isCompleted: false,
+      );
 }
