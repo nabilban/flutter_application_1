@@ -35,11 +35,16 @@ dependencies:
   freezed_annotation:
   cupertino_icons: ^1.0.6
   dartz: ^0.10.1
+  bloc: ^8.1.4
+  flutter_bloc: ^8.1.5
+  injectable:   
+  get_it: 
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   hive_generator:
+  injectable_generator: 
   freezed: 
   build_runner:
   flutter_lints: 
