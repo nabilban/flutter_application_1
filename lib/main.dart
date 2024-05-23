@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/injection_container.dart';
 import 'package:flutter_application_1/service/to_do_service/data/boxes/boxes.dart';
 import 'package:flutter_application_1/service/to_do_service/data/models/to_do_model.dart';
 import 'package:flutter_application_1/service/to_do_service/presentation/bloc/to_do_bloc.dart';
@@ -11,6 +12,7 @@ void main() async {
   Hive.registerAdapter(ToDoModelAdapter());
   toDoBox = await Hive.openBox<ToDoModel>('toDoBox');
   // ignore: unused_local_variable
+  init();
   runApp(const MyApp());
 }
 

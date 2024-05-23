@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/service/to_do_service/domain/entities/to_do_entity.dart';
 import 'package:flutter_application_1/service/to_do_service/presentation/bloc/to_do_bloc.dart';
 import 'package:flutter_application_1/service/to_do_service/presentation/widget/to_do_dialog.dart';
 import 'package:flutter_application_1/service/to_do_service/presentation/widget/to_do_item.dart';
@@ -16,6 +15,14 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      context.read<ToDoBloc>().add(const ToDoEvent.fetch());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blue.shade200,
@@ -29,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
               return ListView.builder(
                 itemCount: state.toDos.length,
                 itemBuilder: (context, index) {
-                  return  ToDoItem(
+                  return ToDoItem(
                     title: state.toDos[index].title,
                     isCompleted: state.toDos[index].isCompleted,
                   );
@@ -41,7 +48,8 @@ class _MyHomePageState extends State<MyHomePage> {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.blue,
           onPressed: () {
-            showDialog(context: context, builder: (context) =>const ToDoDialog());
+            showDialog(
+                context: context, builder: (context) => const ToDoDialog());
           },
           child: const Icon(Icons.add, color: Colors.white),
         ));
